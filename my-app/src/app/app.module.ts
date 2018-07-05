@@ -11,6 +11,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsModule } from './items/items.module';
 import { AppRoutingModule } from './app-routing.module';
 
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     ItemsModule,
     PageNotFoundModule
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'fr' }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
